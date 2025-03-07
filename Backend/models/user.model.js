@@ -47,10 +47,10 @@ userSchema.methods.comparePassword = async function (password) {
     return await bcrypt.compare(password, this.password)
 }
 
-userSchema.methods.hashPassword = async function(password){
+userSchema.statics.hashPassword = async function(password){
     return await bcrypt.hash(password, 10)
 }
 
-const userMOdel = mongoose.model('user', userSchema)
+const userModel = mongoose.model('user', userSchema)
 
-module.exports = userMOdel;
+module.exports = userModel;
