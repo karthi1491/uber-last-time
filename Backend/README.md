@@ -160,4 +160,89 @@ Example:
 }
 ```
 
+# Get User Profile Endpoint
+
+## Endpoint
+`GET /users/profile`
+
+## Description
+This endpoint is used to get the profile of the currently authenticated user.
+
+## Responses
+
+### Success
+- **Status Code**: `200 OK`
+- **Response Body**: A JSON object containing the user's profile details.
+
+Example:
+```json
+{
+  "_id": "user_id",
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.doe@example.com"
+}
+
+### Unauthorized
+- **Status Code**: `401 Unauthorized`
+- **Response Body**: A JSON object containing an error message.
+
+Example:
+```json
+{
+  "message": "Unauthorized"
+}
+```
+
+# User Logout Endpoint
+
+## Endpoint
+`GET /users/logout`
+
+## Description
+This endpoint is used to log out the currently authenticated user. It clears the authentication token and blacklists it.
+
+## Responses
+
+### Success
+- **Status Code**: `200 OK`
+- **Response Body**: A JSON object containing a success message.
+
+Example:
+```json
+{
+  "message": "Logged out successfully"
+}
+```
+
+### Unauthorized
+- **Status Code**: `401 Unauthorized`
+- **Response Body**: A JSON object containing an error message.
+Example:
+```json
+{
+  "message": "Unauthorized"
+}
+```
+
+# User Model
+
+## Schema
+The user model schema defines the structure of the user documents in the MongoDB database.
+
+### Fields
+- `fullname`: An object containing:
+  - `firstname`: A string with a minimum length of 3 characters (required)
+  - `lastname`: A string with a minimum length of 3 characters (optional)
+- `email`: A string representing the user's email address (required, unique, minimum length of 5 characters)
+- `password`: A string representing the user's hashed password (required, not selected by default)
+- `socketId`: A string representing the user's socket ID (optional)
+
+### Methods
+- `generateAuthToken()`: Generates a JWT token for the user.
+- `comparePassword(password)`: Compares the provided password with the user's hashed password.
+- `hashPassword(password)`: Hashes the provided password using bcrypt.
+
 ```
