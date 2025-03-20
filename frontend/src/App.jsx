@@ -8,20 +8,26 @@ import Captainlogin from './pages/Captainlogin'
 import Captainsignup from './pages/Captainsignup'
 import UserSignup from '../src/pages/UserSignup'
 import Start from './pages/Start'
+
 const App = () => {
   return (
     <div>
+    
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path='/' element={<Start/>} />
+      
+       
         <Route path='/login' element={<UserLogin />} />
         <Route path='/register' element={<UserRegister />} />
         <Route path='/captain-login' element={<Captainlogin/>} />
         <Route path='/captain-signup' element={<Captainsignup/>} />
         <Route path='/signup' element={<UserSignup/>} />
-        <Route path='/Start' element={<Start/>} />
-
+        <Route path='/home' element={<Home />} />
+       
+        
+       
       </Routes>
-      
+   
     </div>
   )
 }
