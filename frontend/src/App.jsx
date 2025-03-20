@@ -1,11 +1,13 @@
 import React from 'react'
 import { Routes,Route } from 'react-router-dom'
 
-import Home from '../src/pages/Home'
+import Home from './pages/Start'
 import UserLogin from '../src/pages/UserLogin'
 import UserRegister from '../src/pages/UserSignup'
 import Captainlogin from './pages/Captainlogin'
 import Captainsignup from './pages/Captainsignup'
+import UserSignup from '../src/pages/UserSignup'
+import Start from './pages/Start'
 const App = () => {
   return (
     <div>
@@ -14,7 +16,9 @@ const App = () => {
         <Route path='/login' element={<UserLogin />} />
         <Route path='/register' element={<UserRegister />} />
         <Route path='/captain-login' element={<Captainlogin/>} />
-        <Route path='/captain-register' element={<Captainsignup/>} />
+        <Route path='/captain-signup' element={<Captainsignup/>} />
+        <Route path='/signup' element={<UserSignup/>} />
+        <Route path='/Start' element={<Start/>} />
 
       </Routes>
       
